@@ -67,7 +67,7 @@ otp.config_defaults = {
             showBikeshareMode     : true,   // turn on/off the bikeshare options in the mode pull down
             showTrainMode         : true,   // turn on/off the train options in the mode pull down
             showWheelchairForm    : true,   // turn on/off the wheelchair check box (on by default)
-            showIntermediateForms : true,   // turn on/off the ability to plan routes with intermediate points 
+            showIntermediateForms : false,   // turn on/off the ability to plan routes with intermediate points 
             showStopCodes         : true,   // show stop codes as part of the itinerary
             showAgencyInfo        : true,   // show the 'service run by Yolobus' on each itinerary leg
             showFareInfo          : true,   // show the fare information in the itinerary
@@ -107,11 +107,11 @@ otp.config_defaults = {
 
         geocoder  :
         {
-            enabled : false,
-            url     : "/geocoder/geocode",  
+            enabled : true,
+            url     : "../opentripplanner-geocoder/geocode",  
             addressParamName : "address"
-        },
-        fromToOverride : new Ext.Template('<div class="mapHelp">' + otp.config.locale.config.rightClickMsg + '</div>')
+        }
+       // fromToOverride : new Ext.Template('<div class="mapHelp">' + otp.config.locale.config.rightClickMsg + '</div>')
     },
 
     map : {
@@ -231,17 +231,17 @@ otp.config_defaults = {
 
         // uris and layer names
         // these match up with geoserver
-        layerUrlRoutes: 'http://localhost:5180/geoserver/wms',
-        layerUrlStops: 'http://localhost:5180/geoserver/wms',
-        layerUrlRoutesHighlighted: 'http://localhost:5180/geoserver/wms',
-        layerUrlStopsHighlighted: 'http://localhost:5180/geoserver/wms',
+        layerUrlRoutes: 'http://localhost:8080/geoserver/wms',
+        layerUrlStops: 'http://localhost:8080/geoserver/wms',
+        layerUrlRoutesHighlighted: 'http://localhost:8080/geoserver/wms',
+        layerUrlStopsHighlighted: 'http://localhost:8080/geoserver/wms',
         layerNamesRoute: 'routes',
         layerNamesStop: 'stops',
         layerNamesRouteHighlighted: 'routes_highlighted',
         layerNamesStopHighlighted: 'stops_highlighted',
         
         // this is the uri to the extended api that proxies to geoserver
-        controlStopsUrl: '/opentripplanner-api-extended/wms'
+        controlStopsUrl: '../opentripplanner-api-extended/wms'
     },
 
     // if specified, uri path to a custom logo otherwise use the default "images/ui/logoSmall.png"
